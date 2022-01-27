@@ -8,9 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    let chars = ["a","b", "c", "d"]
+    let dashes = ["a'","b'", "c'", "d'"]
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List {
+            Section(header: Text("chars").font(.largeTitle), footer: Text("This is the footer.")) {
+                ForEach(0 ..< chars.count) { index in
+                    Text(self.chars[index])
+                }
+            }
+            Section(header: Text("dashes").font(.largeTitle), footer: Text("This is the footer.")) {
+                ForEach(0 ..< dashes.count) { index in
+                    Text(self.dashes[index])
+                }
+            }
+        }.listStyle(GroupedListStyle())
     }
 }
 
